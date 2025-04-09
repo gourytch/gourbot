@@ -1,0 +1,5 @@
+{"level":"info","msg":"Bot is running...","time":"2025-04-08T12:11:07+02:00"}
+{"level":"info","msg":"Bot started","time":"2025-04-08T12:11:07+02:00"}
+{"level":"info","msg":"Shutting down bot...","time":"2025-04-08T12:11:32+02:00"}
+{"level":"info","msg":"Bot stopped","time":"2025-04-08T12:11:32+02:00"}
+{"level":"info","msg":"Bot stopped gracefully","time":"2025-04-08T12:11:32+02:00"}
