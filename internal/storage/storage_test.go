@@ -4,15 +4,23 @@ import (
 	"testing"
 	"time"
 
-	"gourbot/internal/models"
+	"gourbot/internal/config"
+	"gourbot/internal/types"
 
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/stretchr/testify/assert"
 )
 
+// Helper function to create a test Config
+func createTestConfig() *config.Config {
+	return &config.Config{
+		DbPath: ":memory:",
+	}
+}
+
 func TestStorage_OpenClose(t *testing.T) {
-	// Use in-memory SQLite database
-	storage := NewStorage(":memory:")
+	cfg := createTestConfig()
+	storage := NewStorage(cfg)
 	err := storage.Open()
 	assert.NoError(t, err, "failed to open storage")
 
@@ -21,7 +29,8 @@ func TestStorage_OpenClose(t *testing.T) {
 }
 
 func TestStorage_CreateTables(t *testing.T) {
-	storage := NewStorage(":memory:")
+	cfg := createTestConfig()
+	storage := NewStorage(cfg)
 	err := storage.Open()
 	assert.NoError(t, err, "failed to open storage")
 	defer storage.Close()
@@ -32,13 +41,14 @@ func TestStorage_CreateTables(t *testing.T) {
 }
 
 func TestStorage_AddTgRecord(t *testing.T) {
-	storage := NewStorage(":memory:")
+	cfg := createTestConfig()
+	storage := NewStorage(cfg)
 	err := storage.Open()
 	assert.NoError(t, err, "failed to open storage")
 	defer storage.Close()
 
 	// Add a record to tgdump
-	err = storage.AddTgRecord(true, "{\"key\":\"value\"}")
+	err = storage.AddTgRecord(true, []byte("{\"key\":\"value\"}"))
 	assert.NoError(t, err, "failed to add record to tgdump")
 
 	// Verify the record exists
@@ -52,30 +62,32 @@ func TestStorage_AddTgRecord(t *testing.T) {
 }
 
 func TestStorage_AddTgUser(t *testing.T) {
-	storage := NewStorage(":memory:")
+	cfg := createTestConfig()
+	storage := NewStorage(cfg)
 	err := storage.Open()
 	assert.NoError(t, err, "failed to open storage")
 	defer storage.Close()
 
 	id := int64(12345)
 	name := "TestUser"
-	info := "{}"
-	user := models.NewTgUser(id, name, info)
+	info := []byte("{}")
+	user := types.NewTgUser(id, name, info)
 
 	err = storage.AddTgUser(user)
 	assert.NoError(t, err, "failed to add user")
 }
 
 func TestStorage_TgUserExists(t *testing.T) {
-	storage := NewStorage(":memory:")
+	cfg := createTestConfig()
+	storage := NewStorage(cfg)
 	err := storage.Open()
 	assert.NoError(t, err, "failed to open storage")
 	defer storage.Close()
 
 	id := int64(12345)
 	name := "TestUser"
-	info := "{}"
-	user := models.NewTgUser(id, name, info)
+	info := []byte("{}")
+	user := types.NewTgUser(id, name, info)
 
 	err = storage.AddTgUser(user)
 	assert.NoError(t, err, "failed to add user")
@@ -86,15 +98,16 @@ func TestStorage_TgUserExists(t *testing.T) {
 }
 
 func TestStorage_GetTgUser(t *testing.T) {
-	storage := NewStorage(":memory:")
+	cfg := createTestConfig()
+	storage := NewStorage(cfg)
 	err := storage.Open()
 	assert.NoError(t, err, "failed to open storage")
 	defer storage.Close()
 
 	id := int64(12345)
 	name := "TestUser"
-	info := "{}"
-	user := models.NewTgUser(id, name, info)
+	info := []byte("{}")
+	user := types.NewTgUser(id, name, info)
 
 	err = storage.AddTgUser(user)
 	assert.NoError(t, err, "failed to add user")
@@ -108,20 +121,21 @@ func TestStorage_GetTgUser(t *testing.T) {
 }
 
 func TestStorage_GetAllTgUsers(t *testing.T) {
-	storage := NewStorage(":memory:")
+	cfg := createTestConfig()
+	storage := NewStorage(cfg)
 	err := storage.Open()
 	assert.NoError(t, err, "failed to open storage")
 	defer storage.Close()
 
 	id1 := int64(12345)
 	name1 := "TestUser1"
-	info1 := "{}"
-	user1 := models.NewTgUser(id1, name1, info1)
+	info1 := []byte("{}")
+	user1 := types.NewTgUser(id1, name1, info1)
 
 	id2 := int64(67890)
 	name2 := "TestUser2"
-	info2 := "{}"
-	user2 := models.NewTgUser(id2, name2, info2)
+	info2 := []byte("{}")
+	user2 := types.NewTgUser(id2, name2, info2)
 
 	err = storage.AddTgUser(user1)
 	assert.NoError(t, err, "failed to add user1")
@@ -134,15 +148,16 @@ func TestStorage_GetAllTgUsers(t *testing.T) {
 }
 
 func TestStorage_UpdateTgUser(t *testing.T) {
-	storage := NewStorage(":memory:")
+	cfg := createTestConfig()
+	storage := NewStorage(cfg)
 	err := storage.Open()
 	assert.NoError(t, err, "failed to open storage")
 	defer storage.Close()
 
 	id := int64(12345)
 	name := "TestUser"
-	info := "{}"
-	user := models.NewTgUser(id, name, info)
+	info := []byte("{}")
+	user := types.NewTgUser(id, name, info)
 
 	err = storage.AddTgUser(user)
 	assert.NoError(t, err, "failed to add user")
@@ -150,7 +165,7 @@ func TestStorage_UpdateTgUser(t *testing.T) {
 	user.Name = "UpdatedUser"
 	user.SeenAt = time.Now()
 	user.Permissions = map[string]bool{"read": true, "write": true}
-	user.Info = "{\"updated\":true}"
+	user.Info = []byte("{\"updated\":true}")
 
 	err = storage.UpdateTgUser(user)
 	assert.NoError(t, err, "failed to update user")

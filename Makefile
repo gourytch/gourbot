@@ -11,8 +11,10 @@ tidy:
 
 # Сборка для локального запуска
 .PHONY: build
-build:
-	go build $(GOURBOT_LDFLAGS) -o bin/gourbot ./cmd/gourbot
+build: ./bin/gourbot
+
+./bin/gourbot::
+	go build $(GOURBOT_LDFLAGS) -o ./bin/gourbot ./cmd/gourbot
 
 # Запуск приложения
 .PHONY: run
@@ -21,7 +23,8 @@ run: build
 		echo "Error: .env file is missing. Please create it based on .env-template."; \
 		exit 1; \
 	fi
-	env $(cat .env | xargs) ./bin/gourbot
+#	env $(cat .env | xargs)
+	./bin/gourbot
 
 # Очистка скомпилированных файлов
 .PHONY: clean

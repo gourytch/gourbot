@@ -20,6 +20,7 @@ func main() {
 
 	// Инициализация логгера
 	logger := logger.InitLogger(cfg)
+	log.SetOutput(logger.Writer())
 
 	// Инициализация Telegram-бота
 	tgBot, err := tgbot.NewTgBot(cfg, logger)

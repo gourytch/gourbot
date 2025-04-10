@@ -1,0 +1,143 @@
+{"level":"fatal","msg":"Failed to initialize TgBot: error call getMe, error do request for method getMe, Post \"https://api.telegram.org/bot6357973227:AAHdVUNtRacXX3zo_Cahdc_FC0FwwnAPIoE/getMe\": context deadline exceeded","time":"2025-04-10T02:42:48+02:00"}
+{"level":"info","msg":"TgBot instance starting...","time":"2025-04-10T02:46:17+02:00"}
+{"level":"info","msg":"start proxy canceller ...","time":"2025-04-10T02:46:17+02:00"}
+{"level":"info","msg":"start watching chanQuit ...","time":"2025-04-10T02:46:17+02:00"}
+{"level":"info","msg":"Notify: bot started","time":"2025-04-10T02:46:17+02:00"}
+{"level":"info","msg":"Notify sent","time":"2025-04-10T02:46:17+02:00"}
+{"level":"info","msg":"GOT::: {\"update_id\":276440634,\"message\":{\"message_id\":675,\"from\":{\"id\":82967807,\"is_bot\":false,\"first_name\":\"Lev\",\"last_name\":\"Babchenko\",\"username\":\"Gourytch\",\"language_code\":\"en\",\"is_premium\":true},\"date\":1744245993,\"chat\":{\"id\":82967807,\"type\":\"private\",\"username\":\"Gourytch\",\"first_name\":\"Lev\",\"last_name\":\"Babchenko\"},\"text\":\"/quit\",\"entities\":[{\"type\":\"bot_command\",\"offset\":0,\"length\":5,\"custom_emoji_id\":\"\"}],\"pinned_message\":null,\"reply_markup\":{\"inline_keyboard\":null}}}","time":"2025-04-10T02:46:34+02:00"}
+{"level":"info","msg":"emit chanQuit signal...","time":"2025-04-10T02:46:39+02:00"}
+{"level":"info","msg":"Shutdown signal sent to chanQuit","time":"2025-04-10T02:46:39+02:00"}
+{"level":"info","msg":"got chanQuit","time":"2025-04-10T02:46:39+02:00"}
+{"level":"info","msg":"Notify: bot got chanQuit signal","time":"2025-04-10T02:46:39+02:00"}
+{"level":"info","msg":"Notify sent","time":"2025-04-10T02:46:39+02:00"}
+{"level":"info","msg":"all workers finished - pull the trigger","time":"2025-04-10T02:46:39+02:00"}
+{"level":"info","msg":"TgBot instance finished...","time":"2025-04-10T02:46:39+02:00"}
+{"level":"info","msg":"TgBot finished without error","time":"2025-04-10T02:46:39+02:00"}
+{"level":"info","msg":"That's all, folks!","time":"2025-04-10T02:46:39+02:00"}
+{"level":"info","msg":"Notify: got signal from outer space","time":"2025-04-10T02:46:39+02:00"}
+{"level":"info","msg":"TgBot instance starting...","time":"2025-04-10T02:59:42+02:00"}
+{"level":"info","msg":"start watching chanQuit ...","time":"2025-04-10T02:59:42+02:00"}
+{"level":"info","msg":"start proxy canceller ...","time":"2025-04-10T02:59:42+02:00"}
+{"level":"info","msg":"Notify: bot started","time":"2025-04-10T02:59:42+02:00"}
+{"level":"info","msg":"Notify sent","time":"2025-04-10T02:59:42+02:00"}
+{"level":"info","msg":"GOT::: {\"update_id\":276440636,\"message\":{\"message_id\":681,\"from\":{\"id\":82967807,\"is_bot\":false,\"first_name\":\"Lev\",\"last_name\":\"Babchenko\",\"username\":\"Gourytch\",\"language_code\":\"en\",\"is_premium\":true},\"date\":1744246789,\"chat\":{\"id\":82967807,\"type\":\"private\",\"username\":\"Gourytch\",\"first_name\":\"Lev\",\"last_name\":\"Babchenko\"},\"text\":\"bzz\",\"pinned_message\":null,\"reply_markup\":{\"inline_keyboard\":null}}}","time":"2025-04-10T02:59:50+02:00"}
+{"level":"info","msg":"Notify: got signal from outer space","time":"2025-04-10T03:00:07+02:00"}
+{"level":"info","msg":"Notify sent","time":"2025-04-10T03:00:07+02:00"}
+{"level":"info","msg":"emit chanQuit signal...","time":"2025-04-10T03:00:08+02:00"}
+{"level":"info","msg":"Shutdown signal sent to chanQuit","time":"2025-04-10T03:00:08+02:00"}
+{"level":"info","msg":"got chanQuit","time":"2025-04-10T03:00:08+02:00"}
+{"level":"info","msg":"Notify: bot got chanQuit signal","time":"2025-04-10T03:00:08+02:00"}
+{"level":"info","msg":"TgBot instance finished...","time":"2025-04-10T03:00:08+02:00"}
+{"level":"info","msg":"TgBot finished without error","time":"2025-04-10T03:00:08+02:00"}
+{"level":"info","msg":"That's all, folks!","time":"2025-04-10T03:00:08+02:00"}
+{"level":"error","msg":"SendMessage failed: error do request for method sendMessage, Post \"https://api.telegram.org/bot6357973227:AAHdVUNtRacXX3zo_Cahdc_FC0FwwnAPIoE/sendMessage\": context canceled","time":"2025-04-10T03:00:08+02:00"}
+{"level":"error","msg":"Notify failed: error do request for method sendMessage, Post \"https://api.telegram.org/bot6357973227:AAHdVUNtRacXX3zo_Cahdc_FC0FwwnAPIoE/sendMessage\": context canceled","time":"2025-04-10T03:00:08+02:00"}
+{"level":"info","msg":"all workers finished - pull the trigger","time":"2025-04-10T03:00:08+02:00"}
+{"level":"info","msg":"TgBot instance starting...","time":"2025-04-10T03:01:16+02:00"}
+{"level":"info","msg":"start proxy canceller ...","time":"2025-04-10T03:01:16+02:00"}
+{"level":"info","msg":"start watching chanQuit ...","time":"2025-04-10T03:01:16+02:00"}
+{"level":"info","msg":"Notify: bot started","time":"2025-04-10T03:01:16+02:00"}
+{"level":"info","msg":"Notify sent","time":"2025-04-10T03:01:16+02:00"}
+{"level":"info","msg":"Notify: got signal from outer space","time":"2025-04-10T03:02:53+02:00"}
+{"level":"info","msg":"Notify sent","time":"2025-04-10T03:02:53+02:00"}
+{"level":"info","msg":"emit chanQuit signal...","time":"2025-04-10T03:02:53+02:00"}
+{"level":"info","msg":"Shutdown signal sent to chanQuit","time":"2025-04-10T03:02:53+02:00"}
+{"level":"info","msg":"got chanQuit","time":"2025-04-10T03:02:53+02:00"}
+{"level":"info","msg":"Notify: bot got chanQuit signal","time":"2025-04-10T03:02:53+02:00"}
+{"level":"info","msg":"TgBot instance finished...","time":"2025-04-10T03:02:53+02:00"}
+{"level":"info","msg":"TgBot finished without error","time":"2025-04-10T03:02:53+02:00"}
+{"level":"info","msg":"That's all, folks!","time":"2025-04-10T03:02:53+02:00"}
+{"level":"error","msg":"SendMessage failed: error do request for method sendMessage, Post \"https://api.telegram.org/bot6357973227:AAHdVUNtRacXX3zo_Cahdc_FC0FwwnAPIoE/sendMessage\": context canceled","time":"2025-04-10T03:02:53+02:00"}
+{"level":"info","msg":"TgBot instance starting...","time":"2025-04-10T03:03:06+02:00"}
+{"level":"info","msg":"start proxy canceller ...","time":"2025-04-10T03:03:06+02:00"}
+{"level":"info","msg":"start watching chanQuit ...","time":"2025-04-10T03:03:06+02:00"}
+{"level":"info","msg":"Notify: bot started","time":"2025-04-10T03:03:06+02:00"}
+{"level":"info","msg":"Notify sent","time":"2025-04-10T03:03:06+02:00"}
+{"level":"info","msg":"Notify: got signal from outer space","time":"2025-04-10T03:03:11+02:00"}
+{"level":"info","msg":"Notify sent","time":"2025-04-10T03:03:12+02:00"}
+{"level":"info","msg":"emit chanQuit signal...","time":"2025-04-10T03:03:12+02:00"}
+{"level":"info","msg":"Shutdown signal sent to chanQuit","time":"2025-04-10T03:03:12+02:00"}
+{"level":"info","msg":"got chanQuit","time":"2025-04-10T03:03:12+02:00"}
+{"level":"info","msg":"Notify: bot got chanQuit signal","time":"2025-04-10T03:03:12+02:00"}
+{"level":"info","msg":"TgBot instance finished...","time":"2025-04-10T03:03:12+02:00"}
+{"level":"info","msg":"TgBot finished without error","time":"2025-04-10T03:03:12+02:00"}
+{"level":"info","msg":"That's all, folks!","time":"2025-04-10T03:03:12+02:00"}
+{"level":"error","msg":"SendMessage failed: error do request for method sendMessage, Post \"https://api.telegram.org/bot6357973227:AAHdVUNtRacXX3zo_Cahdc_FC0FwwnAPIoE/sendMessage\": context canceled","time":"2025-04-10T03:03:12+02:00"}
+{"level":"error","msg":"Notify failed: error do request for method sendMessage, Post \"https://api.telegram.org/bot6357973227:AAHdVUNtRacXX3zo_Cahdc_FC0FwwnAPIoE/sendMessage\": context canceled","time":"2025-04-10T03:03:12+02:00"}
+{"level":"info","msg":"all workers finished - pull the trigger","time":"2025-04-10T03:03:12+02:00"}
+{"level":"info","msg":"TgBot instance starting...","time":"2025-04-10T03:04:30+02:00"}
+{"level":"info","msg":"start proxy canceller ...","time":"2025-04-10T03:04:30+02:00"}
+{"level":"info","msg":"start watching chanQuit ...","time":"2025-04-10T03:04:30+02:00"}
+{"level":"info","msg":"Notify: bot started","time":"2025-04-10T03:04:30+02:00"}
+{"level":"info","msg":"Notify sent","time":"2025-04-10T03:04:30+02:00"}
+{"level":"info","msg":"Notify: got signal from outer space","time":"2025-04-10T03:04:41+02:00"}
+{"level":"info","msg":"Notify sent","time":"2025-04-10T03:04:41+02:00"}
+{"level":"info","msg":"emit chanQuit signal...","time":"2025-04-10T03:04:42+02:00"}
+{"level":"info","msg":"Shutdown signal sent to chanQuit","time":"2025-04-10T03:04:42+02:00"}
+{"level":"info","msg":"got chanQuit","time":"2025-04-10T03:04:42+02:00"}
+{"level":"info","msg":"Notify: bot got chanQuit signal","time":"2025-04-10T03:04:42+02:00"}
+{"level":"info","msg":"TgBot instance finished...","time":"2025-04-10T03:04:42+02:00"}
+{"level":"info","msg":"TgBot finished without error","time":"2025-04-10T03:04:42+02:00"}
+{"level":"info","msg":"That's all, folks!","time":"2025-04-10T03:04:42+02:00"}
+{"level":"error","msg":"SendMessage failed: error do request for method sendMessage, Post \"https://api.telegram.org/bot6357973227:AAHdVUNtRacXX3zo_Cahdc_FC0FwwnAPIoE/sendMessage\": context canceled","time":"2025-04-10T03:04:42+02:00"}
+{"level":"info","msg":"2025/04/10 03:05:30 Opened SQLite database /home/gour/src/@gourbot/gourbot/bin/gourbot.sqlite","time":"2025-04-10T03:05:30+02:00"}
+{"level":"info","msg":"TgBot instance starting...","time":"2025-04-10T03:05:30+02:00"}
+{"level":"info","msg":"start watching chanQuit ...","time":"2025-04-10T03:05:30+02:00"}
+{"level":"info","msg":"start proxy canceller ...","time":"2025-04-10T03:05:30+02:00"}
+{"level":"info","msg":"Notify: bot started","time":"2025-04-10T03:05:30+02:00"}
+{"level":"info","msg":"Notify sent","time":"2025-04-10T03:05:30+02:00"}
+{"level":"info","msg":"GOT::: {\"update_id\":276440637,\"message\":{\"message_id\":691,\"from\":{\"id\":198185192,\"is_bot\":false,\"first_name\":\"Lev\",\"last_name\":\"Babchenko\",\"username\":\"lvbabchenko\",\"language_code\":\"en\"},\"date\":1744247157,\"chat\":{\"id\":198185192,\"type\":\"private\",\"username\":\"lvbabchenko\",\"first_name\":\"Lev\",\"last_name\":\"Babchenko\"},\"text\":\"qq\",\"pinned_message\":null,\"reply_markup\":{\"inline_keyboard\":null}}}","time":"2025-04-10T03:05:58+02:00"}
+{"level":"info","msg":"emit chanQuit signal...","time":"2025-04-10T03:06:34+02:00"}
+{"level":"info","msg":"Shutdown signal sent to chanQuit","time":"2025-04-10T03:06:34+02:00"}
+{"level":"info","msg":"got chanQuit","time":"2025-04-10T03:06:34+02:00"}
+{"level":"info","msg":"Notify: bot got chanQuit signal","time":"2025-04-10T03:06:34+02:00"}
+{"level":"info","msg":"Notify sent","time":"2025-04-10T03:06:34+02:00"}
+{"level":"info","msg":"all workers finished - pull the trigger","time":"2025-04-10T03:06:34+02:00"}
+{"level":"info","msg":"TgBot instance finished...","time":"2025-04-10T03:06:34+02:00"}
+{"level":"info","msg":"TgBot finished without error","time":"2025-04-10T03:06:34+02:00"}
+{"level":"info","msg":"That's all, folks!","time":"2025-04-10T03:06:34+02:00"}
+{"level":"info","msg":"Notify: got signal from outer space","time":"2025-04-10T03:06:34+02:00"}
+{"level":"info","msg":"2025/04/10 03:18:33 Opened SQLite database /home/gour/src/@gourbot/gourbot/bin/gourbot.sqlite","time":"2025-04-10T03:18:33+02:00"}
+{"level":"info","msg":"TgBot instance starting...","time":"2025-04-10T03:18:33+02:00"}
+{"level":"info","msg":"start watching chanQuit ...","time":"2025-04-10T03:18:33+02:00"}
+{"level":"info","msg":"start proxy canceller ...","time":"2025-04-10T03:18:33+02:00"}
+{"level":"info","msg":"Notify: bot started","time":"2025-04-10T03:18:33+02:00"}
+{"level":"info","msg":"Notify sent","time":"2025-04-10T03:18:33+02:00"}
+{"level":"info","msg":"Notify: New user detected: Gourytch, ID: 82967807. To approve, use /approve_82967807","time":"2025-04-10T03:18:50+02:00"}
+{"level":"info","msg":"Notify sent","time":"2025-04-10T03:18:50+02:00"}
+{"level":"info","msg":"ignore user 82967807","time":"2025-04-10T03:18:50+02:00"}
+{"level":"info","msg":"ignore user 82967807","time":"2025-04-10T03:19:20+02:00"}
+{"level":"info","msg":"Notify: got signal from outer space","time":"2025-04-10T03:19:23+02:00"}
+{"level":"info","msg":"Notify sent","time":"2025-04-10T03:19:23+02:00"}
+{"level":"info","msg":"emit chanQuit signal...","time":"2025-04-10T03:19:23+02:00"}
+{"level":"info","msg":"Shutdown signal sent to chanQuit","time":"2025-04-10T03:19:23+02:00"}
+{"level":"info","msg":"got chanQuit","time":"2025-04-10T03:19:23+02:00"}
+{"level":"info","msg":"Notify: bot got chanQuit signal","time":"2025-04-10T03:19:23+02:00"}
+{"level":"info","msg":"TgBot instance finished...","time":"2025-04-10T03:19:23+02:00"}
+{"level":"info","msg":"TgBot finished without error","time":"2025-04-10T03:19:23+02:00"}
+{"level":"info","msg":"That's all, folks!","time":"2025-04-10T03:19:23+02:00"}
+{"level":"error","msg":"SendMessage failed: error do request for method sendMessage, Post \"https://api.telegram.org/bot6357973227:AAHdVUNtRacXX3zo_Cahdc_FC0FwwnAPIoE/sendMessage\": context canceled","time":"2025-04-10T03:19:23+02:00"}
+{"level":"error","msg":"Notify failed: error do request for method sendMessage, Post \"https://api.telegram.org/bot6357973227:AAHdVUNtRacXX3zo_Cahdc_FC0FwwnAPIoE/sendMessage\": context canceled","time":"2025-04-10T03:19:23+02:00"}
+{"level":"info","msg":"2025/04/10 03:25:34 Opened SQLite database /home/gour/src/@gourbot/gourbot/bin/gourbot.sqlite","time":"2025-04-10T03:25:34+02:00"}
+{"level":"info","msg":"TgBot instance starting...","time":"2025-04-10T03:25:34+02:00"}
+{"level":"info","msg":"start proxy canceller ...","time":"2025-04-10T03:25:34+02:00"}
+{"level":"info","msg":"start watching chanQuit ...","time":"2025-04-10T03:25:34+02:00"}
+{"level":"info","msg":"Notify: bot started","time":"2025-04-10T03:25:34+02:00"}
+{"level":"info","msg":"Notify sent","time":"2025-04-10T03:25:34+02:00"}
+{"level":"info","msg":"GOT::: {\"update_id\":276440642,\"message\":{\"message_id\":704,\"from\":{\"id\":82967807,\"is_bot\":false,\"first_name\":\"Lev\",\"last_name\":\"Babchenko\",\"username\":\"Gourytch\",\"language_code\":\"en\",\"is_premium\":true},\"date\":1744248340,\"chat\":{\"id\":82967807,\"type\":\"private\",\"username\":\"Gourytch\",\"first_name\":\"Lev\",\"last_name\":\"Babchenko\"},\"text\":\"aaa\",\"pinned_message\":null,\"reply_markup\":{\"inline_keyboard\":null}}}","time":"2025-04-10T03:25:42+02:00"}
+{"level":"info","msg":"Notify: New user detected: lvbabchenko, ID: 198185192. To approve, use /approve_198185192","time":"2025-04-10T03:26:01+02:00"}
+{"level":"info","msg":"Notify sent","time":"2025-04-10T03:26:02+02:00"}
+{"level":"info","msg":"ignore user 198185192","time":"2025-04-10T03:26:02+02:00"}
+{"level":"info","msg":"GOT::: {\"update_id\":276440644,\"message\":{\"message_id\":708,\"from\":{\"id\":82967807,\"is_bot\":false,\"first_name\":\"Lev\",\"last_name\":\"Babchenko\",\"username\":\"Gourytch\",\"language_code\":\"en\",\"is_premium\":true},\"date\":1744248397,\"chat\":{\"id\":82967807,\"type\":\"private\",\"username\":\"Gourytch\",\"first_name\":\"Lev\",\"last_name\":\"Babchenko\"},\"text\":\"/approve_198185192\",\"entities\":[{\"type\":\"bot_command\",\"offset\":0,\"length\":18,\"custom_emoji_id\":\"\"}],\"pinned_message\":null,\"reply_markup\":{\"inline_keyboard\":null}}}","time":"2025-04-10T03:26:39+02:00"}
+{"level":"info","msg":"Notify: got signal from outer space","time":"2025-04-10T03:26:45+02:00"}
+{"level":"info","msg":"Notify sent","time":"2025-04-10T03:26:45+02:00"}
+{"level":"info","msg":"emit chanQuit signal...","time":"2025-04-10T03:26:45+02:00"}
+{"level":"info","msg":"Shutdown signal sent to chanQuit","time":"2025-04-10T03:26:45+02:00"}
+{"level":"info","msg":"got chanQuit","time":"2025-04-10T03:26:45+02:00"}
+{"level":"info","msg":"Notify: bot got chanQuit signal","time":"2025-04-10T03:26:45+02:00"}
+{"level":"info","msg":"TgBot instance finished...","time":"2025-04-10T03:26:45+02:00"}
+{"level":"info","msg":"TgBot finished without error","time":"2025-04-10T03:26:45+02:00"}
+{"level":"info","msg":"That's all, folks!","time":"2025-04-10T03:26:45+02:00"}
+{"level":"error","msg":"SendMessage failed: error do request for method sendMessage, Post \"https://api.telegram.org/bot6357973227:AAHdVUNtRacXX3zo_Cahdc_FC0FwwnAPIoE/sendMessage\": context canceled","time":"2025-04-10T03:26:45+02:00"}
+{"level":"error","msg":"Notify failed: error do request for method sendMessage, Post \"https://api.telegram.org/bot6357973227:AAHdVUNtRacXX3zo_Cahdc_FC0FwwnAPIoE/sendMessage\": context canceled","time":"2025-04-10T03:26:45+02:00"}
+{"level":"info","msg":"all workers finished - pull the trigger","time":"2025-04-10T03:26:45+02:00"}

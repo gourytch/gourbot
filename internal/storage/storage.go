@@ -2,10 +2,13 @@ package storage
 
 import (
 	"database/sql"
+	"encoding/json"
+	"log"
 	"os"
 	"time"
 
-	"gourbot/internal/models"
+	"gourbot/internal/config"
+	"gourbot/internal/types"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -16,10 +19,10 @@ type Storage struct {
 	filename string
 }
 
-// NewStorage initializes a new Storage instance with the given filename.
-func NewStorage(filename string) *Storage {
+// NewStorage initializes a new Storage instance using the provided Config.
+func NewStorage(cfg *config.Config) *Storage {
 	return &Storage{
-		filename: filename,
+		filename: cfg.DbPath, // Use the existing DbPath field
 	}
 }
 
@@ -27,8 +30,10 @@ func NewStorage(filename string) *Storage {
 func (s *Storage) Open() error {
 	db, err := sql.Open("sqlite3", s.filename)
 	if err != nil {
+		log.Printf("Failed to open SQLite database %s: %v", s.filename, err)
 		return err
 	}
+	log.Printf("Opened SQLite database %s", s.filename)
 	s.db = db
 	return s.createTables()
 }
@@ -85,13 +90,16 @@ func (s *Storage) createTables() error {
 }
 
 // AddTgRecord adds a new record to the tgdump table.
-func (s *Storage) AddTgRecord(out bool, data string) error {
+func (s *Storage) AddTgRecord(out bool, rec interface{}) error {
 	if s.db == nil {
 		return sql.ErrConnDone
 	}
-
+	data, err := json.Marshal(rec)
+	if err != nil {
+		return err
+	}
 	query := `INSERT INTO tgdump (out, data) VALUES (?, ?);`
-	_, err := s.db.Exec(query, out, data)
+	_, err = s.db.Exec(query, out, data)
 	return err
 }
 
@@ -99,7 +107,7 @@ func (s *Storage) AddTgRecord(out bool, data string) error {
 // Ensure proper conversion between Unix time and time.Time during read and write operations.
 
 // AddTgUser adds a new user to the tgusers table.
-func (s *Storage) AddTgUser(user *models.TgUser) error {
+func (s *Storage) AddTgUser(user *types.TgUser) error {
 	query := `INSERT INTO tgusers (id, name, created_at, seen_at, permissions, info) VALUES (?, ?, ?, ?, ?, ?)`
 	permissions := user.PermissionsToString()
 	createdAtUnix := user.CreatedAt.Unix()
@@ -120,18 +128,19 @@ func (s *Storage) TgUserExists(id int64) (bool, error) {
 }
 
 // GetTgUser retrieves a user by ID from the tgusers table.
-func (s *Storage) GetTgUser(id int64) (*models.TgUser, error) {
+func (s *Storage) GetTgUser(id int64) (*types.TgUser, error) {
 	query := `SELECT name, created_at, seen_at, permissions, info FROM tgusers WHERE id = ?`
 	row := s.db.QueryRow(query, id)
 
-	var name, info, permissions string
+	var name, permissions string
+	var info []byte
 	var createdAtUnix, seenAtUnix int64
 	err := row.Scan(&name, &createdAtUnix, &seenAtUnix, &permissions, &info)
 	if err != nil {
 		return nil, err
 	}
 
-	user := models.NewTgUser(id, name, info)
+	user := types.NewTgUser(id, name, info)
 	user.CreatedAt = time.Unix(createdAtUnix, 0)
 	user.SeenAt = time.Unix(seenAtUnix, 0)
 	user.AddPermissionsFromString(permissions)
@@ -140,7 +149,7 @@ func (s *Storage) GetTgUser(id int64) (*models.TgUser, error) {
 }
 
 // GetAllTgUsers retrieves all users from the tgusers table.
-func (s *Storage) GetAllTgUsers() ([]*models.TgUser, error) {
+func (s *Storage) GetAllTgUsers() ([]*types.TgUser, error) {
 	query := `SELECT id, name, created_at, seen_at, permissions, info FROM tgusers`
 	rows, err := s.db.Query(query)
 	if err != nil {
@@ -148,17 +157,18 @@ func (s *Storage) GetAllTgUsers() ([]*models.TgUser, error) {
 	}
 	defer rows.Close()
 
-	var users []*models.TgUser
+	var users []*types.TgUser
 	for rows.Next() {
 		var id int64
-		var name, info, permissions string
+		var name, permissions string
+		var info []byte
 		var createdAtUnix, seenAtUnix int64
 		err := rows.Scan(&id, &name, &createdAtUnix, &seenAtUnix, &permissions, &info)
 		if err != nil {
 			return nil, err
 		}
 
-		user := models.NewTgUser(id, name, info)
+		user := types.NewTgUser(id, name, info)
 		user.CreatedAt = time.Unix(createdAtUnix, 0)
 		user.SeenAt = time.Unix(seenAtUnix, 0)
 		user.AddPermissionsFromString(permissions)
@@ -170,7 +180,7 @@ func (s *Storage) GetAllTgUsers() ([]*models.TgUser, error) {
 }
 
 // UpdateTgUser updates an existing user in the tgusers table.
-func (s *Storage) UpdateTgUser(user *models.TgUser) error {
+func (s *Storage) UpdateTgUser(user *types.TgUser) error {
 	query := `UPDATE tgusers SET name = ?, seen_at = ?, permissions = ?, info = ? WHERE id = ?`
 	permissions := user.PermissionsToString()
 	seenAtUnix := user.SeenAt.Unix()
