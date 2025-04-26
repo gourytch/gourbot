@@ -1,6 +1,9 @@
+
 COMMIT_HASH := $(shell git rev-parse --short HEAD)
-BUILD_TIME := $(shell date +'%Y-%m-%d %H:%M:%S %Z')
-GOURBOT_LDFLAGS := # -ldflags "-X main.ComitHash='$(COMMIT_HASH)' -X main.BuildTime='$(BUILD_TIME)'"
+BUILD_TIME := $(shell date +'%Y-%m-%dT%H:%M:%S')
+VERSION=$(shell git describe --tags --always --abbrev=0 --match='v[0-9]*.[0-9]*.[0-9]*' 2> /dev/null | sed 's/^.//')
+VPKG := gourbot/internal
+GOURBOT_LDFLAGS := -ldflags "-X ${VPKG}/version.Version='${VERSION}' -X ${VPKG}/version.CommitHash='${COMMIT_HASH}' -X ${VPKG}/version.BuildTime='${BUILD_TIME}'"
 
 .PHONY: all
 all: tidy build
@@ -9,14 +12,12 @@ all: tidy build
 tidy:
 	go mod tidy
 
-# Сборка для локального запуска
 .PHONY: build
 build: ./bin/gourbot
 
 ./bin/gourbot::
-	go build $(GOURBOT_LDFLAGS) -o ./bin/gourbot ./cmd/gourbot
+	go build  $(GOURBOT_LDFLAGS) -o ./bin/gourbot ./cmd/gourbot
 
-# Запуск приложения
 .PHONY: run
 run: build
 	@if [ ! -f .env ]; then \
@@ -26,10 +27,9 @@ run: build
 #	env $(cat .env | xargs)
 	./bin/gourbot
 
-# Очистка скомпилированных файлов
 .PHONY: clean
 clean:
-	rm -rf bin/
+	rm -rf bin/ log/ || true
 
 # Запуск тестов
 .PHONY: test

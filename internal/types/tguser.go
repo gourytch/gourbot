@@ -36,14 +36,18 @@ func NewTgUser(id int64, name string, info []byte) *TgUser {
 		Name:        name,
 		CreatedAt:   time.Now(),
 		SeenAt:      time.Now(),
-		Permissions: make(map[string]bool),
+		Permissions: map[string]bool{},
 		Info:        info,
 	}
 }
 
+func (u *TgUser) IsNewbie() bool {
+	return u.CreatedAt.Equal(u.SeenAt) && len(u.Permissions) == 0
+}
+
 // ClearPermissions removes all permissions from the user.
 func (u *TgUser) ClearPermissions() {
-	u.Permissions = make(map[string]bool)
+	u.Permissions = map[string]bool{}
 }
 
 // AddPermissionsFromString parses a comma-separated string and adds permissions to the user.

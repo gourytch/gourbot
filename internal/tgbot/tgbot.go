@@ -9,6 +9,7 @@ import (
 
 	"gourbot/internal/config"
 	"gourbot/internal/storage"
+	"gourbot/internal/tools"
 	"gourbot/internal/types"
 
 	"github.com/go-telegram/bot"
@@ -151,7 +152,7 @@ func (tgBot *TgBot) Guard(update *models.Update) bool {
 	tgBot.storage.AddTgRecord(false, update)
 
 	// Extract user information from the update
-	user := GetUserFromUpdate(update)
+	user := tools.GetUserFromUpdate(update)
 	if user == nil {
 		tgBot.logger.Warn("Update does not contain user information")
 		return false

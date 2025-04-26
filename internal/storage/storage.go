@@ -3,12 +3,16 @@ package storage
 import (
 	"database/sql"
 	"encoding/json"
+	"fmt"
 	"log"
 	"os"
 	"time"
 
 	"gourbot/internal/config"
+	"gourbot/internal/tools"
 	"gourbot/internal/types"
+
+	"github.com/go-telegram/bot/models"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -146,6 +150,35 @@ func (s *Storage) GetTgUser(id int64) (*types.TgUser, error) {
 	user.AddPermissionsFromString(permissions)
 
 	return user, nil
+}
+
+// GetTgUser retrieves a user by ID from the tgusers table.
+func (s *Storage) GetRefreshedTgUser(update *models.Update) (*types.TgUser, error) {
+	tgufu := tools.GetUserFromUpdate(update)
+	if tgufu == nil {
+		return nil, fmt.Errorf("failed to get user from update")
+	}
+	username := tgufu.Username
+	if username == "" {
+		username = tgufu.FirstName + " " + tgufu.LastName
+	}
+	tgUser, err := s.GetTgUser(tgufu.ID)
+	if err != nil {
+		if err == sql.ErrNoRows {
+			log.Printf("User %d not found in database, creating new user", tgufu.ID)
+			tgUser = types.NewTgUser(tgufu.ID, username, nil)
+			tgUser.CreatedAt = time.Now()
+		} else {
+			log.Printf("GetTfUser error: %v", err)
+			return nil, err
+		}
+	}
+	tgUser.SeenAt = time.Now()
+	tgUser.Name = username
+	tgUser.Info, _ = json.Marshal(tgufu)
+
+	s.UpdateTgUser(tgUser)
+	return tgUser, nil
 }
 
 // GetAllTgUsers retrieves all users from the tgusers table.
